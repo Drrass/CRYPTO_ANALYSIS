@@ -1,10 +1,12 @@
 const twilio = require('twilio');
 
-// Use environment variables for security (recommended)
-const accountSid = process.env.TWILIO_ACCOUNT_SID || 'AC8ec44507f38cd706ccf87f39b389f71b';
-const authToken = process.env.TWILIO_AUTH_TOKEN || '364c524a7ae16a61a33073840d2c2a28';
-const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER || '+18312655211';
-const myPhoneNumber = '+917983428486';
+// Load environment variables
+require('dotenv').config();
+
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
+
 const client = twilio(accountSid, authToken);
 
 async function sendSmsAlert(to, message) {

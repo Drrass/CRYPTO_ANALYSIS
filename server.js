@@ -32,12 +32,13 @@ app.use('/api/crypto', cryptoRoutes);
 io.on('connection', (socket) => {
   console.log('New client connected');
 
-  const closingPrices = []; // Array to store recent closing prices
+  const closingPrices = [];
 
   const fetchRealTimePrice = async () => {
     try {
       const response = await axios.get('https://api.binance.com/api/v3/ticker/price', {
-        params: { symbol: 'BTCUSDT' },
+        params: { symbol: 'ETHUSDT' },
+       
       });
       const priceData = response.data;
       socket.emit('priceUpdate', { symbol: priceData.symbol, price: priceData.price });

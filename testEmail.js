@@ -3,7 +3,7 @@ const { sendEmailAlert } = require('./services/alertService');
 async function testEmail() {
   try {
     await sendEmailAlert(
-      'sahilsinghdev90@gmail.com', // Replace with your email address to test
+      'mehrahimanshu780@gmail.com',
       'Test Email Alert',
       'This is a test email to verify the email alert functionality.'
     );
