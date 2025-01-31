@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.io Test</title>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <h1>Real-time Price Updates</h1>
+  <div id="price"></div>
+
+  <script>
+    const socket = io('http://localhost:5000');
+    socket.on('priceUpdate', (data) => {
+      document.getElementById('price').innerText = `Symbol: ${data.symbol}, Price: ${data.price}`;
+    });
+  </script>
+</body>
+</html> 
